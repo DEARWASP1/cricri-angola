@@ -420,6 +420,49 @@ nav a:hover, nav a.active {
   color: rgba(255,255,255,0.2);
 }
 
+.article-hero {
+  margin: 0 0 32px;
+}
+
+.article-hero .article-img {
+  max-width: none;
+  margin-bottom: 8px;
+}
+
+.credit {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: normal;
+}
+
+.credit a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+
+.article-figure {
+  margin: 28px 0;
+}
+
+.article-figure img {
+  width: 100%;
+  border-radius: var(--radius);
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.article-figure figcaption {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.article-figure figcaption .credit {
+  margin-top: 4px;
+}
+
 .article-content h2 {
   font-family: 'Merriweather', serif;
   font-size: 1.4rem;

@@ -50,8 +50,11 @@
     document.getElementById('article').innerHTML = `
       <div class="post-meta"><span class="post-tag">${post.tag}</span><span>${post.date}</span><span>· ${post.read} de leitura</span></div>
       <h1>${post.title}</h1>
-      <div class="article-img-placeholder">${post.icon}</div>
-      <div class="article-content">${post.content}</div>`;
+      <figure class="article-hero">
+        <img class="article-img" src="${imgSrc(post.image)}" alt="${IMAGES[post.image].alt}">
+        <figcaption class="credit">${credit(post.image)}</figcaption>
+      </figure>
+      <div class="article-content">${post.content()}</div>`;
     document.getElementById('others').innerHTML = POSTS.filter(p => p.id !== post.id)
       .map(p => `<li><a href="article.html?id=${p.id}">${p.icon} ${p.title}</a></li>`).join('');
   </script>

@@ -98,7 +98,7 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 Cricri Angola. Feito com paixão pela aviação.</div>
+    <div class="footer-bottom">© 2026 Cricri Angola. Feito com paixão pela aviação. Fotografias via Wikimedia Commons, com créditos em cada artigo.</div>
   </footer>
 
   <script src="posts.js"></script>
@@ -106,7 +106,7 @@
     const postsEl = document.getElementById('posts');
     postsEl.innerHTML = POSTS.map(p => `
       <article class="post-card">
-        <div class="post-card-img-placeholder">${p.icon}</div>
+        <a href="article.html?id=${p.id}"><img class="post-card-img" src="${imgSrc(p.image)}" alt="${IMAGES[p.image].alt}" loading="lazy"></a>
         <div class="post-card-body">
           <div class="post-meta"><span class="post-tag">${p.tag}</span><span>${p.date}</span><span>· ${p.read} de leitura</span></div>
           <h3><a href="article.html?id=${p.id}">${p.title}</a></h3>
