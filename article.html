@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricri Angola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✈️</span> Cricri <span>Angola</span></a>
+      <button class="menu-toggle" aria-label="Abrir menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <ul id="nav">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="article.html?id=o-que-e-o-cricri">O Cricri</a></li>
+          <li><a href="article.html?id=construir-a-asa">Construção</a></li>
+          <li><a href="article.html?id=legalizacao-em-angola">Legislação</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="main-grid">
+      <main>
+        <article class="article-full" id="article"></article>
+        <a href="index.html" class="read-more">← Voltar aos artigos</a>
+      </main>
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3>Outros artigos</h3>
+          <ul class="specs-list" id="others"></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">© 2026 Cricri Angola. Conteúdo educativo — voe sempre com segurança e dentro da lei.</div>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    const id = new URLSearchParams(location.search).get('id');
+    const post = POSTS.find(p => p.id === id) || POSTS[0];
+    document.title = post.title + ' — Cricri Angola';
+    document.getElementById('article').innerHTML = `
+      <div class="post-meta"><span class="post-tag">${post.tag}</span><span>${post.date}</span><span>· ${post.read} de leitura</span></div>
+      <h1>${post.title}</h1>
+      <div class="article-img-placeholder">${post.icon}</div>
+      <div class="article-content">${post.content}</div>`;
+    document.getElementById('others').innerHTML = POSTS.filter(p => p.id !== post.id)
+      .map(p => `<li><a href="article.html?id=${p.id}">${p.icon} ${p.title}</a></li>`).join('');
+  </script>
+</body>
+</html>

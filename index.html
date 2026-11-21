@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricri Angola — Construa o seu avião</title>
+  <meta name="description" content="Blog sobre como construir aviões Cricri MC-15 em Angola: materiais, construção, motores e legalização.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><span class="logo-icon">✈️</span> Cricri <span>Angola</span></a>
+      <button class="menu-toggle" aria-label="Abrir menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <ul id="nav">
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="article.html?id=o-que-e-o-cricri">O Cricri</a></li>
+          <li><a href="article.html?id=construir-a-asa">Construção</a></li>
+          <li><a href="article.html?id=legalizacao-em-angola">Legislação</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Construa o seu próprio <span>Cricri</span> em Angola</h1>
+      <p>Guias, dicas e histórias de quem quer levar a construção amadora de aviões aos céus angolanos — da primeira chapa de alumínio ao primeiro voo.</p>
+      <a href="article.html?id=o-que-e-o-cricri" class="hero-cta">Começar a ler →</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="main-grid">
+      <main class="posts-section">
+        <h2>Artigos recentes</h2>
+        <div id="posts"></div>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-widget about-widget" id="sobre">
+          <h3>Sobre o blog</h3>
+          <p>O Cricri Angola é um diário de construção e um ponto de encontro para entusiastas da aviação ligeira em Angola.</p>
+          <p>Partilhamos o que aprendemos para que mais angolanos possam construir e voar com segurança.</p>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>Ficha técnica MC-15</h3>
+          <ul class="specs-list">
+            <li><span class="label">Envergadura</span><span class="value">~4,9 m</span></li>
+            <li><span class="label">Comprimento</span><span class="value">~3,9 m</span></li>
+            <li><span class="label">Peso vazio</span><span class="value">~80 kg</span></li>
+            <li><span class="label">Peso máximo</span><span class="value">~170 kg</span></li>
+            <li><span class="label">Motores</span><span class="value">2 × ~15 cv</span></li>
+            <li><span class="label">Lugares</span><span class="value">1</span></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>Etapas da construção</h3>
+          <ol class="steps-list">
+            <li>Planos e registo do projeto</li>
+            <li>Materiais e oficina</li>
+            <li>Asa e empenagem</li>
+            <li>Fuselagem e trem</li>
+            <li>Motores e comandos</li>
+            <li>Inspeção e primeiro voo</li>
+          </ol>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>Temas</h3>
+          <div class="tags-cloud" id="tags"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Cricri Angola</h4>
+        <p>Construção amadora de aviões Cricri MC-15 em Angola. Conteúdo educativo — voe sempre com segurança e dentro da lei.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Artigos</h4>
+        <ul id="footer-links"></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Regiões com aeródromos</h4>
+        <ul>
+          <li>Luanda</li>
+          <li>Benguela · Catumbela</li>
+          <li>Huíla · Lubango</li>
+          <li>Namibe</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Cricri Angola. Feito com paixão pela aviação.</div>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    const postsEl = document.getElementById('posts');
+    postsEl.innerHTML = POSTS.map(p => `
+      <article class="post-card">
+        <div class="post-card-img-placeholder">${p.icon}</div>
+        <div class="post-card-body">
+          <div class="post-meta"><span class="post-tag">${p.tag}</span><span>${p.date}</span><span>· ${p.read} de leitura</span></div>
+          <h3><a href="article.html?id=${p.id}">${p.title}</a></h3>
+          <p>${p.excerpt}</p>
+          <a href="article.html?id=${p.id}" class="read-more">Ler artigo →</a>
+        </div>
+      </article>`).join('');
+    document.getElementById('tags').innerHTML = POSTS.map(p => `<a href="article.html?id=${p.id}">${p.tag}</a>`).join('');
+    document.getElementById('footer-links').innerHTML = POSTS.map(p => `<li><a href="article.html?id=${p.id}">${p.tag}</a></li>`).join('');
+  </script>
+</body>
+</html>
